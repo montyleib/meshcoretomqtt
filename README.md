@@ -1,5 +1,5 @@
 # meshcoretomqtt
-A python based script to send meshore debug and packet capture data to MQTT for analysis.  Requires meshcore repeater to be connected to a raspberry pi, server or similar linux device able to run python.
+A python based script to send meshore debug and packet capture data to MQTT for analysis.  Requires a meshcore repeater to be connected to a raspberry pi, server or similar linux device able to run python.
 
 The goal is to have multiple repeaters logging data to the same MQTT server so you can "easily" troubleshoot packets through the mesh.
 You will need to build a custom image with packet logging and/or debug for your repeater to view the data.  Alternatively you could obtain custom images from someone that can build them for you.
@@ -8,7 +8,7 @@ One way of tracking a message through the mesh is filtering the MQTT data on the
 
 ## Usage
 - Setup a raspberry pi (zero / 2 / 3 or 4 recommended)
-- Setup / compile / flash a meshcore repater with the appropriate build flags...
+- Setup / compile / flash a meshcore repeater with the appropriate build flags...
 
   Recommended minimum...
   ```
@@ -21,7 +21,7 @@ One way of tracking a message through the mesh is filtering the MQTT data on the
 - Plug the repeater into the pi via USB (rak or heltec tested)
 - Configure the repeater with a unique name and setup as per meshcore guides.
 - Ensure python is installed on your pi / server device.
-- Ensure you have paho mqtt and pyserial installed
+- Ensure you have paho-mqtt and pyserial installed
 
   ```
   sudo apt update
@@ -76,7 +76,7 @@ MeshCore does not currently have any privacy controls baked into the protocol ([
   TOPIC_PACKETS = "meshcore/packets"
   TOPIC_DECODED = "meshcore/decoded"
   ```
-  Status: The last will and testement (LWT) of each node connected.  Here you can see online / offline status of a node on the MQTT server.
+  Status: The last will and testament (LWT) of each node connected.  Here you can see online / offline status of a node on the MQTT server.
 
   RAW: The raw packet data going through the repeater.
 
@@ -88,7 +88,7 @@ MeshCore does not currently have any privacy controls baked into the protocol ([
 
 ## Example MQTT data...
 
-Note: origin is the repeater node reporting the data to mqtt.  Not the origin of the LoRa packet.
+Note: origin is the repeater node reporting the data to mqtt, not the origin of the LoRa packet.
 
 Flood packet...
 ```
